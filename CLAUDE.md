@@ -1,0 +1,1 @@
+I'm learning. Don't write the solution for me. Explain what the code does, ask guiding questions, give hints, and let me write the code.
