@@ -17,7 +17,8 @@ password.txt
 
 
 # development data
-/data/jonava.geojson
+/data/jonava.geojson/
+/data
 
 
 # misc
