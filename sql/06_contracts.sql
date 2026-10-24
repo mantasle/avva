@@ -1,4 +1,4 @@
-create table   (
+create table contracts  (
   id                       bigint generated always as identity primary key,
   building_id              bigint references buildings(id) not null,
   apartment_number         text,

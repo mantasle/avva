@@ -243,3 +243,21 @@ Keturios rodyklės
 ②	buildings.fed_by_device_id	buildings → devices	„Šis pastatas gauna signalą iš šio įrenginio“	taip, pildysi palaipsniui
 ③	devices.installed_in_building_id	devices → buildings	„Šis įrenginys stovi šiame pastate“	taip, gali būti prie stulpo
 ④	devices.parent_device_id	devices → devices	„Šis įrenginys gauna signalą iš šio įrenginio“	taip, pirmas keitiklis
+
+
+
+Select, Insert, Update, Delete
+
+ lentelė                    admin   manager   technician
+ ─────────────────────────  ─────   ───────   ──────────
+ buildings                  SIUD    s         SIU galima keisti: U(fed_by_device_id, lat/lng) osm gali netureti reiksmiu.
+ staircases                 SIUD             SIU 
+ devices                    SIUD             SIU 
+ maintenance_notes          SIUD             SIuD 
+ contracts                  SIUD    SIU         s ribotai
+ plans                      SIUD    SIU         s
+ plan_prices                SIUD    SI        s
+ contract_plans             SIUD    SIU         s
+ profiles                   SIUD    s            s
+ disconnection_tasks        SIUD    SIU         s
+ disconnection_task_items   SIUD    SIUD         SIU komentaras susimokeja tinka.
