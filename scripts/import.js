@@ -3,6 +3,12 @@ const Papa = require('papaparse');
 
 const osmFilePath = fs.readFileSync("./data/jonava.geojson", "utf8")
 const csvFilePath = fs.readFileSync("./data/addresses_rows.csv", "utf8")
+const adresai = new Map();
+const csvAdresai = Papa.parse(csvFilePath, { header: true });
+const oldToOsmStreet = new Map([
+  ["kulvieciu", "kulviecio"]
+]);
+
 
 function normalizeString(str) {
    return str.normalize("NFD").toLowerCase().replace(/[\u0300-\u036f]+/g, '').trim()
@@ -21,12 +27,10 @@ function splitTitle(title) {
 
 function makeKey(street, houseNumber) {
   const normalizedStreet = normalizeString(street);
+  const translatedStreet = oldToOsmStreet.get(normalizedStreet) ?? normalizedStreet;
   const normalizedNumber = houseNumber.toLowerCase();
-  return `${normalizedStreet}|${normalizedNumber}`;
+  return `${translatedStreet}|${normalizedNumber}`;
 }
-
-const adresai = new Map();
-const csvAdresai = Papa.parse(csvFilePath, { header: true });
 
 JSON.parse(osmFilePath).features.forEach((feature) => {
 
